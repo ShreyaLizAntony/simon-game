@@ -38,6 +38,13 @@ function checkAnswer(currentLevel) {
                 nextSequence();
             }, 1000);
             userClickedPatterns = [];
+
+            if (gamePattern.length > highScore) {
+                highScore = gamePattern.length;
+
+                const highScoreElement = document.getElementById('highScore');
+                highScoreElement.textContent = 'High Score: ' + highScore;
+            }
         }
     }
 
@@ -79,3 +86,4 @@ $(document).keypress(function() {
 
 var level = 0;
 var started = false;
+var highScore = 0;
